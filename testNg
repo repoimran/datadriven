@@ -1,0 +1,52 @@
+
+	@Test(dataProvider = "dataDto")
+	void test1(IdStudent st) {
+		System.out.println(st.getName() + " " + st.getCountry());
+	}
+			
+	@DataProvider(name = "dataDto")
+	public Iterator<IdStudent> data2() {
+		List<IdStudent> li = new ArrayList<>();
+		IdStudent st1 = new IdStudent("sam", "india");
+		IdStudent st2 = new IdStudent("sam2", "india2");
+		IdStudent st3 = new IdStudent("sam3", "india3");
+		li.add(st1);
+		li.add(st2);
+		li.add(st3);
+		return li.iterator();
+	}
+
+
+------------------------------------dto----------------------------------
+
+
+public class IdStudent {
+	private String name; //null
+	private String country;// null
+
+	IdStudent() {
+		
+	}
+	public IdStudent(String name, String country) {
+		this.name = name;
+		this.country = country;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+}
